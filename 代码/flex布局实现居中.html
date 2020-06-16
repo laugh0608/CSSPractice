@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        div {
+            font-size: 16px;
+            width: 10em;
+            height: 10em;
+            background-color: skyblue;
+            display: flex;
+            margin: 2em;
+            background-image: linear-gradient(
+            transparent 50%,
+            darkgreen calc(50% + 1px),
+            transparent calc(50% + 1px)
+            ),
+            linear-gradient(
+            to right,
+            transparent 50%,
+            darkgreen calc(50% + 1px),
+            transparent calc(50% + 1px)
+            );
+            background-size: 10em 10em;
+        }
+        div span {
+            width: 7em;
+            height: 7em;
+            background-color: hsla(0,100%,72%,0.8);
+            border-radius: 50%;
+        }
+        div:nth-child(1) {
+            align-items: center;
+        }
+        div:nth-child(2) {
+            justify-content: center;
+        }
+        div:nth-child(3) {
+            align-items: center;
+            justify-content: center;
+        }
+    </style>
+</head>
+<body>
+    <div>
+        <span></span>
+    </div>
+    <div>
+        <span></span>
+    </div>
+    <div>
+        <span></span>
+    </div>
+</body>
+</html>

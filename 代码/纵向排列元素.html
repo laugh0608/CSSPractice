@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        body {
+            display: flex;
+        }
+        div {
+            font-size: 16px;
+            display: flex;
+            align-items: center;
+            width: 7em;
+            height: 35em;
+            flex-direction: column;
+            /*设置主轴的方向，默认值是row，表示从左到右延伸，另一个常用值就是column，表示从上到下延伸*/
+            background-color: lightblue;
+            margin: 2em;
+        }
+        div span {
+            width: 5em;
+            height: 5em;
+            border-radius: 50%;
+            background-color: darkcyan;
+        }
+        div:nth-child(1) {
+            justify-content: flex-start;
+            /*    居左*/
+        }
+        div:nth-child(2) {
+            justify-content: flex-end;
+            /*    居右*/
+        }
+        div:nth-child(3) {
+            justify-content: space-between;
+            /*    首尾的两个元素挨着容器边缘，中间的其他元素平均排列*/
+        }
+        div:nth-child(4) {
+            justify-content: space-around;
+            /*    首尾的两个元素与容器边框的距离是元素之间间距的一半，各元素平均排列*/
+        }
+    </style>
+</head>
+<body>
+<div class="container">
+    <span></span>
+    <span></span>
+    <span></span>
+</div>
+<div class="container">
+    <span></span>
+    <span></span>
+    <span></span>
+</div>
+<div class="container">
+    <span></span>
+    <span></span>
+    <span></span>
+</div>
+<div class="container">
+    <span></span>
+    <span></span>
+    <span></span>
+</div>
+</body>
+</html>

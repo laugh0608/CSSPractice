@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        div,
+        div::before,
+        div::after {
+            width: 10em;
+            height: 10em;
+            border-radius: 50%;
+        }
+        div {
+            font-size: 10px;
+            margin: 4em;
+            position: relative;
+            background-color: lightgreen;
+        }
+        div::before,
+        div:after {
+            content: '';
+            position: absolute;
+            top: 5em;
+        }
+        div::before {
+            background-color: moccasin;
+            right: 3em;
+        }
+        div::after {
+            background-color: orange;
+            left: 3em;
+        }
+    /*  主元素和伪元素因不是同级关系，
+        所以它们之间的z-index不能比较，
+        一旦主元素设置为z-index值，不论值是多少，
+        主元素都作为整个容器最下面的一层，
+        其子元素均位于主元素之上
+    */
+    </style>
+</head>
+<body>
+    <div></div>
+</body>
+</html>

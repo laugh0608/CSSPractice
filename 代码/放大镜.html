@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        .magnifier {
+            position: relative;
+            color: dodgerblue;
+            font-size: 10px;
+        }
+        .lens {
+            position: absolute;
+            width: 10em;
+            height: 10em;
+            border: 1em solid;
+            border-radius: 50%;
+        }
+        .handle {
+            position: absolute;
+            width: 2em;
+            height: 10em;
+            border-radius: 0 0 1em 1em;
+            background-color: currentColor;
+            left: 10em;
+            top: 10em;
+            transform: rotate(-45deg);
+            transform-origin: top;
+        }
+    </style>
+</head>
+<body>
+    <figure class="magnifier">
+        <div class="lens"></div>
+        <div class="handle"></div>
+    </figure>
+</body>
+</html>

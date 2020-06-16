@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        .eight {
+            font-size: 6px;
+            margin: 5em;
+            /*外边距属性*/
+            background-color: lightyellow;
+            display: flex;
+            /*弹性布局*/
+            flex-direction: column;
+            /*弹性布局：灵活的项目将垂直显示，正如一个列一样*/
+            align-items: center;
+        }
+        .eight div {
+            border-radius: 50%;
+            border: 3em solid lightgreen;
+        }
+        .eight div:nth-child(1) {
+            width: 18em;
+            height: 18em;
+        }
+        .eight div:nth-child(2) {
+            width: 20em;
+            height: 20em;
+        }
+        .eight:nth-child(2) div:nth-child(1) {
+            position: relative;
+            top: 3em;
+        }
+    </style>
+</head>
+<body>
+    <figure class="eight">
+        <div></div>
+        <div></div>
+    </figure>
+    <figure class="eight">
+        <div></div>
+        <div></div>
+    </figure>
+</body>
+</html>

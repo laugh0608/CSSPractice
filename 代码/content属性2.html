@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        .web-development {
+            padding: 0 1em;
+            border-radius: 1em;
+            background-color: lavender;
+            box-shadow: 0.3em 0.3em 1em hsla(0,0%,70%,0.8);
+        }
+        .web-development p {
+            font-size: 30px;
+            font-family: sans-serif;
+            font-weight: bold;
+            color: slateblue;
+        }
+        .web-development p::before,
+        .web-development p::after {
+            color: tomato;
+        }
+        .web-development p::before {
+            content: attr(data-before);
+        }
+        .web-development p::after {
+            content: attr(data-after);
+        }
+    </style>
+</head>
+<body>
+    <p>所有伪元素都必须要用content属性声明引用内容，引用内容是文本类型</p>
+    <p>没有引用任何文本内容，所以其值为空字符串，须牢记，即使没有引用文本，也不能省略content属性</p>
+    <p>::before和::after最初的应用场景是为段落的开头和结尾增加一些修饰字符，::before的引用文本显示在段落之前，::after的引用文本显示在段落之后</p>
+    <div class="web-development">
+        <p data-before="&lt;" data-after="/&gt;">html</p>
+        <p data-before="." data-after="::">css</p>
+        <p data-before="{" data-after="}">javascript</p>
+    </div>
+</body>
+</html>

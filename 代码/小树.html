@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        body{
+            width: 100%;
+            height: 100%;
+        }
+        .tree{
+            width: 30px;
+            height: 300px;
+            background-color: saddlebrown;
+            border-radius: 5px;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-around;
+            transform: translateX(100px);
+        }
+        .tree .branch1{
+            width: 160px;
+            height: 20px;
+            background-color: peru;
+            border-radius: 10px;
+            display: flex;
+            justify-content: flex-end;
+            transform: rotate(-30deg);
+        }
+        .tree .branch2{
+            width: 160px;
+            height: 20px;
+            background-color: peru;
+            border-radius: 10px;
+            display: flex;
+            justify-content: flex-end;
+            transform: translateX(-80%) rotate(30deg);
+        }
+        .tree .branch1 .leaf1{
+            width: 40px;
+            height: 40px;
+            border-radius: 100% 0 100% 0;
+            background-color: green;
+            transform: translateX(-100%);
+        }
+        .tree .branch2 .leaf2{
+            width: 40px;
+            height: 40px;
+            border-radius: 0 100% 0 100%;
+            background-color: green;
+            transform: translateX(-100%);
+        }
+    </style>
+</head>
+<body>
+    <figure class="tree">
+        <div class="branch1">
+            <span class="leaf1"></span>
+            <span class="leaf1"></span>
+            <span class="leaf1"></span>
+        </div>
+        <div class="branch2">
+            <span class="leaf2"></span>
+            <span class="leaf2"></span>
+        </div>
+    </figure>
+</body>
+</html>

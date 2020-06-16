@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        .circle,
+        .circle::before,
+        .circle::after {
+            width: 10em;
+            height: 10em;
+            box-sizing: border-box;
+            border-top: 0.3em solid currentColor;
+            border-radius: 50%;
+            position: relative;
+        }
+        .circle::before,
+        .circle::after {
+            content: '';
+            position: absolute;
+            top: -0.2em;
+        }
+        .circle {
+            color: hotpink;
+        }
+        .circle::before {
+            color: dodgerblue;
+            transform: rotate(120deg);
+        }
+        .circle::after {
+            color: gold;
+            transform: rotate(240deg);
+        }
+    </style>
+</head>
+<body>
+    <figure class="circle"></figure>
+</body>
+</html>

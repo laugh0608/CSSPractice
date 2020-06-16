@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        figure {
+            display: flex;
+            flex-direction: column;
+            width: 50px;
+            height: 160px;
+            outline: 1px dashed black;
+        }
+        figure .div1 {
+            width: 100%;
+            height: 33%;
+            background-color: orange;
+            border-radius: 50%;
+            margin-bottom: 10px;
+        }
+        figure .div2 {
+            width: 100%;
+            height: 66%;
+            background-color: gold;
+            border-radius: 10px;
+        }
+    </style>
+</head>
+<body>
+    <p>用height: inherit; width: inherit;可以令子元素继承父元素的容器尺寸，但是，通常情况下，一个父元素包含多个子元素，每个子元素的尺寸都比主元素小，所以需要另一种方式，令子元素可以引用父元素的尺寸，同时还能设置自身的尺寸，这种方式就是“百分比值”。几乎所有与长度相关的属性，都可以使用百分比值。以width属性为例，100%即等于父元素width的属性值，如果父元素的width是15em，那么此时子元素的width: 90%表示子元素的宽是13.5em</p>
+    <figure>
+        <div class="div1"></div>
+        <div class="div2"></div>
+    </figure>
+</body>
+</html>

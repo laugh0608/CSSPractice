@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        .chessboard {
+            width: 400px;
+            background-color: burlywood;
+            border: 10px solid darkgray;
+        }
+        .chessboard div {
+            display: flex;
+        }
+        .chessboard div span {
+            width: 100px;
+            height: 100px;
+        }
+        .chessboard div:nth-child(odd) span:nth-child(even),
+        .chessboard div:nth-child(even) span:nth-child(odd) {
+            background-color: rgba(0,0,0,0.3);
+        }
+    </style>
+</head>
+<body>
+    <figure class="chessboard">
+        <div>
+            <span></span>
+            <span></span>
+            <span></span>
+            <span></span>
+        </div>
+        <div>
+            <span></span>
+            <span></span>
+            <span></span>
+            <span></span>
+        </div>
+        <div>
+            <span></span>
+            <span></span>
+            <span></span>
+            <span></span>
+        </div>
+        <div>
+            <span></span>
+            <span></span>
+            <span></span>
+            <span></span>
+        </div>
+    </figure>
+</body>
+</html>

@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        .squares {
+            font-size: 10px;
+            width: 15em;
+            height: 15em;
+            position: relative;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+        .squares div {
+            position: absolute;
+            box-sizing: border-box;
+            border: 1em solid dimgray;
+        }
+        .squares div:nth-child(1) {
+            width: 100%;
+            height: 100%;
+        }
+        .squares div:nth-child(2) {
+            width: 70%;
+            height: 70%;
+        }
+        .squares div:nth-child(3) {
+            width: 40%;
+            height: 40%;
+        }
+        .squares div::before,
+        .squares div::after {
+            content: '';
+            position: absolute;
+            width: 1em;
+            height: calc(50% + 1em);
+            background-color: gold;
+        }
+        .squares div::before {
+            top: 0;
+            left: 0;
+        }
+        .squares div::after {
+            bottom: 0;
+            right: 0;
+        }
+    </style>
+</head>
+<body>
+    <p>伪元素的父级容器即是其主元素，所以对伪元素进行绝对定位时，即是相对于它的主元素左上角的位置进行定位</p>
+    <figure class="squares">
+        <div></div>
+        <div></div>
+        <div></div>
+    </figure>
+</body>
+</html>
