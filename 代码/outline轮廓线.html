@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        .div1,
+        .div2 {
+            width: 10em;
+            height: 10em;
+            background-color: #ccc;
+            border: 0.5em solid dodgerblue;
+            outline: 0.5em solid orange;
+        }
+        .div2 {
+            border-radius: 50%;
+        }
+        .div3 {
+            width: 0;
+            height: 0;
+            border: 5em solid;
+            border-color: transparent dodgerblue dodgerblue transparent;
+            border-radius: 50%;
+            transform: rotate(45deg);
+            outline: 1px dashed black;
+        }
+    </style>
+</head>
+<body>
+    <div class="div1"></div>
+    <div class="div2"></div>
+    <p>outline的主要用途是作辅助线，对于特殊造型，我们通常想知道它的盒模型到底占据了多大空间</p><br>
+    <div class="div3"></div>
+</body>
+</html>
