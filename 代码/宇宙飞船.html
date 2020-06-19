@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <!--  这是一个充分利用圆角属性的作品，在这个作
+    品中看不到方方正正的矩形和直上直下的线条，所有的
+    线条都是圆润的，这是大量使用border-radius属性
+    的结果。我们来分析一下宇宙飞船的结构，它包括船身、
+    引擎和机翼3部分，细节上，船身中间有一个舷窗，引擎
+    是由灰色的喷火口和火焰组成，机翼在船身左右各有一个  -->
+    <style>
+        body {
+            background-color: #161a2a;
+        }
+        /*设置容器尺寸，并用outline画出容器的边框，帮助我们对元素进行定位，最后会删除掉辅助线*/
+        .spacecraft {
+            width: 11em;
+            height: 15em;
+            position: relative;
+            /*outline: 1px dashed white;*/
+            left: 5em;
+        }
+        /*绘制船身。船身由一个竖向的矩形通过圆角变形，形成子弹头的形状，并用渐变色填充背景*/
+        .body {
+            position: absolute;
+            width: 7em;
+            height: 11em;
+            background: linear-gradient(whitesmoke,darkgray);
+            border-radius: 50%/70% 70% 5% 5%;
+            left: 2em;
+        }
+        /*用::before伪元素画出舷窗，舷窗是一个正圆形，用蓝色背景色填充，用border属性描出灰色的边*/
+        .body::before {
+            content: '';
+            position: absolute;
+            box-sizing: border-box;
+            width: 4em;
+            height: 4em;
+            background-color: deepskyblue;
+            border-radius: 50%;
+            border: 0.5em solid lightslategray;
+            top: 3em;
+            left: 1.5em;
+        }
+        /*用阴影画出一道光影*/
+        .body::before {
+            box-shadow: inset -0.2em 0.2em white;
+        }
+        /*接下来绘制引擎。先画喷火口，它是一个横向的矩形，通过圆角属性使四角变圆润*/
+        .engine {
+            position: absolute;
+            width: 6em;
+            height: 2em;
+            background-color: #444;
+            border-radius: 20%;
+            top: 10em;
+            left: 2.5em;
+        }
+        /*然后把它所在的图层置于船身之下*/
+        .body {
+            z-index: 1;
+        }
+        /*火焰是由一个黄色的正方形变化而来，先用圆角属性把它变形为水滴状，然后旋转它，使它细小的部分朝下，再用橙色描边*/
+        .engine::before {
+            content: '';
+            position: absolute;
+            box-sizing: border-box;
+            width: 4em;
+            height: 4em;
+            background: gold;
+            border-radius: 80% 0 50% 45%/50% 0 80% 45%;
+            transform: rotate(135deg);
+            border: 0.5em solid orange;
+            left: 1em;
+        }
+        /*把火焰所在的图层调整到喷火口的下一层*/
+        .engine::before {
+            z-index: -1;
+        }
+        /*接下来画两侧的机翼。机翼是竖向的矩形，背景色从浅红到深红，两侧机翼的大部分代码都是相同的，只是定位属性不同*/
+        .fins::before,
+        .fins::after {
+            content: '';
+            position: absolute;
+            width: 2em;
+            height: 6em;
+            background: linear-gradient(tomato,darkred);
+            top: 7em;
+        }
+        .fins::before {
+            left: 0;
+        }
+        .fins::after {
+            right: 0;
+        }
+        /*用圆角属性塑造机翼的造型*/
+        .fins::before {
+            border-radius: 3em 0 50% 100%;
+        }
+        .fins::after {
+            border-radius: 0 3em 100% 50%;
+        }
+        /*宙飞船全部绘制完成，去掉辅助线*/
+    </style>
+</head>
+<body>
+    <div class="spacecraft">
+        <span class="body"></span>
+        <span class="engine"></span>
+        <span class="fins"></span>
+    </div>
+</body>
+</html>

@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <!-- 这是一个充分用到边框技巧的作品。我们先分析一下铅笔的结构：
+    铅笔包括笔头、笔杆和末端的橡皮3部分，细节上，笔头的顶端是笔尖，
+    笔杆上有一行文字，橡皮和笔杆的衔接处有一小段铁箍。从形状上看，
+    立体的笔杆是六棱柱，平视的话能看到其中的3条棱，因为上下两条棱
+    是倾斜的，所以视觉上的高度会小于中间的棱；立体的笔头是锥形的，
+    在平面上则表现为三角形，笔尖是一个更小的黑三角形；橡皮和铁箍
+    的形状与笔杆类似，只是短一些 -->
+    <style>
+        /* 定义容器尺寸，宽是50em，采用flex布局，子元素将按从左到右横向排列 */
+        .pencil {
+            display: flex;
+            width: 50em;
+            height: 3.5em;
+            font-size: 12px;
+        }
+        /* 分配各部分的比例，左侧的木色笔头宽4em，中间的绿色笔杆宽40em，右侧的粉色橡皮宽6em，合计50em，分别为这3个子元素设置背景色，这就是铅笔的轮廓*/
+        .taper {
+            width: 4em;
+            /*background-color: burlywood;*/
+        }
+        .barrel {
+            width: 40em;
+            background-color: green;
+        }
+        .eraser {
+            position: relative;
+            width: 6em;
+            background-color: lightpink;
+        }
+        /* 绘制笔头，在绘制之前，先把刚才设置的背景色去掉,
+        笔头由两个三角形组成，一个是木色的大三角形，另一个是黑色的
+        小三角形，它们在左端对齐。要在一个DOM元素上绘制两个图形，
+        就要利用伪元素增加元素，这里我们将用::before伪元素画大
+        三角形，用::after伪元素画小三角形。先绘制大三角形。利用
+        本章绘制三角形的知识，令容器的宽、高均为0（此处未明确写
+        出，因为系统默认值即是0），左侧边框宽度为0，右侧边框的宽
+        度即为笔头的宽度，即4em，上边框和下边框的宽度各为铅笔高度
+        的一半，即3.5em/2。除右边框的颜色为木色之外，其他边框的
+        颜色均为透明 */
+        .taper::before {
+            content: '';
+            position: absolute;
+            border-style: solid;
+            border-width: calc(3.5em/2) 4em calc(3.5em/2) 0;
+            border-color: transparent;
+            border-right-color: burlywood;
+        }
+        /*用同样的方法，绘制出一个黑色的三角形，并用transform属性使其缩小*/
+        .taper::after {
+            content: '';
+            position: absolute;
+            border-style: solid;
+            border-width: calc(3.5em/2) 4em calc(3.5em/2) 0;
+            border-color: transparent;
+            border-right-color: black;
+            transform-origin: left;
+            transform: scale(0.3);
+        }
+        /*因为这两个三角形的代码有很多地方相同，为了便于维护，合并::before和::after的共同属性，可以看出，两个三角形的代码只是右边框的颜色不同*/
+        .taper::before,
+        .taper::after {
+            content: '';
+            position: absolute;
+            border-style: solid;
+            border-style: solid;
+            border-width: calc(3.5em/2) 4em calc(3.5em/2) 0;
+            border-color: transparent;
+        }
+        .taper::before {
+            border-right-color: burlywood;
+        }
+        .taper::after {
+            border-right-color: black;
+            transform: scale(0.3);
+            transform-origin: left;
+        }
+        /*接下来绘制笔杆。铅笔全高是3.5em，我们让上下两条棱各高1em，
+        为中间的棱留出1.5em的高度，在平面上，整个笔杆是一个矩形，用
+        矩形的上下边框表示上下两条棱，为它们分别设置不同的颜色，这样看
+        起来就有立体效果了*/
+        .barrel {
+            border-top: 1em solid forestgreen;
+            border-bottom: 1em solid darkgreen;
+            /*笔杆文字居中*/
+            color: silver;
+            line-height: 1.5em;
+            text-align: center;
+            text-transform: uppercase;
+            letter-spacing: 0.1em;
+        }
+        /*接下来绘制橡皮。和笔杆的绘制方法类似，分别为上下边框指定不同的颜色*/
+        .eraser {
+            border-top: 1em solid pink;
+            border-bottom: 1em solid lightcoral;
+            border-radius: 0 0.5em 0.5em 0;
+        }
+        /*橡皮的铁箍用伪元素来画，设置它的高度为1.5em，也就是笔杆中间棱的高度，颜色为银色*/
+        .eraser::before {
+            content: '';
+            position: absolute;
+            width: 1.5em;
+            height: 1.5em;
+            background-color: silver;
+        }
+        /*用绘制笔杆的方法为铁箍增加上下边框，因为铁箍定位在它的父元素橡皮的
+        左上角，不包含橡皮的边框，位置偏下1em，所以再用top属性向上移动1em*/
+        .eraser::before {
+            border-top: 1em solid lightgray;
+            border-bottom: 1em solid gray;
+            top: -1em;
+        }
+        /*整个铅笔就绘制完成了，最后，增加一个阴影效果*/
+        .pencil {
+            filter: drop-shadow(0.4em 0.8em 0.3em gray);
+        }
+    </style>
+</head>
+<body>
+    <div class="pencil">
+        <span class="taper"></span>
+        <span class="barrel">PHP is the best.</span>
+        <span class="eraser"></span>
+    </div>
+</body>
+</html>
