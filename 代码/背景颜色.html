@@ -2,9 +2,54 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>$Title$</title>
+    <title>Title</title>
+    <style>
+        body {
+            background-color: skyblue;
+            width: 10em;
+            height: 10em;
+            /*水平垂直居中*/
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+        /*主元素绘制出云朵中间的部分，
+        ::before伪元素绘制出云朵左侧，
+        ::after伪元素绘制出云朵右侧，
+        然后把它们放置到合适位置，背景色
+        统一设置为whitesmoke，就得到了
+        一个云朵图案*/
+        div {
+            width: 2em;
+            height: 2em;
+            font-size: 50px;
+            color: whitesmoke; /*烟白色*/
+            background: currentColor; /*使用当前颜色*/
+            border-radius: 100% 100% 0 0; /*顶部圆弧*/
+            position: relative;
+        }
+        div::before,
+        div::after {
+            content: '';
+            position: absolute;
+            background-color: currentColor; /*与主元素使用相同的颜色*/
+            bottom: 0;
+        }
+        div::before {
+            width: 1.25em;
+            height: 1.25em;
+            border-radius: 100% 100% 0 100%; /*水滴状，圆弧向左*/
+            left: -30%; /*放在中间元素左侧*/
+        }
+        div:after {
+            width: 1.5em;
+            height: 1.5em;
+            border-radius: 100% 100% 100% 0; /*水滴状，圆弧向右*/
+            right: -30%; /*放在中间元素右侧*/
+        }
+    </style>
 </head>
 <body>
-$END$
+    <div></div>
 </body>
 </html>
