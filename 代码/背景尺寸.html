@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        div {
+            width: 500px;
+            height: 400px;
+            background-color: pink;
+            background-image: url(./img/1.png), url(./img/2.png), url(./img/3.png);
+            background-position: center,top left,350px 250px;
+            background-size: 30%,5em,100px;
+            background-repeat: no-repeat;
+        }
+        /* 1.png的值为30%，也就是说，它的宽为容器的30%，容器宽500px，
+        所以它的宽是150px；2.png的值为5em，此处1em=16px，所以它的宽
+        是80px；3.png的值直接指定为100px。它们都没有指定高度，所以
+        高度都是按比例自动计算的 */
+    </style>
+</head>
+<body>
+    <div></div>
+</body>
+</html>

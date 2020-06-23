@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        div {
+            width: 500px;
+            height: 400px;
+            background-color: pink;
+            background-image: url(./img/1.png), url(./img/2.png), url(./img/3.png);
+            background-position: center,top left,350px 250px;
+            background-repeat: no-repeat;
+        }
+        /* 1.png的值为center，这是简写方式，相当于center 50%，
+        所以显示在容器的中间；2.png的值为top left，被定位
+        在左上角；3.png的值为350px 250px，被定位在右下角。最
+        后一行代码background-repeat: no-repeat表示每个图片只显示1次，
+        不重复显示 */
+    </style>
+</head>
+<body>
+    <div></div>
+</body>
+</html>
