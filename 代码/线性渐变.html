@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        div {
+            width: 200px;
+            height: 50px;
+        }
+        /*多个参数值
+        linear-gradient()函数用于生成线性渐变图片，它可以接收多个参数，每个参数是一个色彩值*/
+        .div1 {
+            background-image: linear-gradient(
+                to right,
+                orangered,
+                orange,
+                gold,
+                lightgreen,
+                cyan
+            );
+        /*色彩值后面可以跟随一个尺寸值或百分比值，表示该颜色的停止位置*/
+        }
+        /*增加停止位置*/
+        .div2 {
+            background-image: linear-gradient(
+                    to right,
+                    orangered 0%,
+                    orange 10%,
+                    gold 20%,
+                    lightgreen 30%,
+                    cyan 40%
+            );
+        }
+        /*在10%、20%、30%、40%这几个位置，每个位置都具有两个色彩值。
+        系统会自动在渐变序列最前面补充上orangered 0%，在渐变序列的
+        最后面补充上cyan100%*/
+        .div3 {
+            background-image: linear-gradient(
+                    to right,
+                    orangered 0%,
+                    orange 10%,orange 20%,
+                    gold 20%,gold 30%,
+                    lightgreen 30%,lightgreen 40%,
+                    cyan 40%
+            );
+        }
+    </style>
+</head>
+<body>
+    <div class="div1"></div>
+    <br>
+    <div class="div2"></div>
+    <br>
+    <div class="div3"></div>
+</body>
+</html>

@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        div {
+            width: 300px;
+            height: 300px;
+        }
+        /*渐变色从容器中心向容器边缘扩散。中心点距四角最远，所
+        以可以看到四角的颜色为青色，但从中心点到与它垂直的四边
+        中间因为距离短，则只能看到嫩绿色为止。中心从orangered
+        开始，经过orange、gold、lightgreen，到达边缘最远处时
+        的颜色为cyan*/
+        .div1 {
+            background-image: radial-gradient(
+                    orangered,
+                    orange,
+                    gold,
+                    lightgreen,
+                    cyan
+            );
+        }
+        /*在此基础上指定了更多的色彩值和停止位置，形成锐利渐变的效果。在
+        15%、30%、45%、60%这几个位置，每个位置都具有两个色彩值
+        。系统会自动在渐变序列最前面补充上orangered 0%，在渐变
+        序列的最后面补充上cyan 100%*/
+        .div2 {
+            background-image: radial-gradient(
+                orangered 15%,
+                orange 15%,orange 30%,
+                gold 30%,gold 45%,
+                lightgreen 45%,lightgreen 60%,
+                cyan 60%
+            );
+        }
+    </style>
+</head>
+<body>
+    <div class="div1"></div>
+    <br>
+    <div class="div2"></div>
+</body>
+</html>
